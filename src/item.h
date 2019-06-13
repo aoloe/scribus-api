@@ -15,6 +15,8 @@ class SCRIBUS_API Item
 		Item(PageItem* item) :
 			scribusPageItem{item} {}
 
+		bool isTextFrame() const { return scribusPageItem->asTextFrame(); }
+
 	private:
 		PageItem* scribusPageItem;
 };

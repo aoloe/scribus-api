@@ -5,8 +5,11 @@ include_directories(
     ${HARFBUZZ_INCLUDE_DIRS}
 )
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${CMAKE_CXX_FLAGS_FPIC}")
+
 set(SCRIBUS_API_LIB_MOC_CLASSES
-  document.h
+  # document.h
+  # item.h
 )
 
 set(SCRIBUS_API_LIB_SOURCES
@@ -19,9 +22,9 @@ set(SCRIBUS_API_LIB_SOURCES
   # imageFrame.cpp
 )
 
-set(SCRIBUS_API_LIB "scribus_api_lib")
-
 QT5_WRAP_CPP(SCRIBUS_API_LIB_MOC_SOURCES ${SCRIBUS_API_LIB_MOC_CLASSES})
+
+set(SCRIBUS_API_LIB "scribus_api_lib")
 
 add_library(${SCRIBUS_API_LIB} STATIC ${SCRIBUS_API_LIB_SOURCES} ${SCRIBUS_API_LIB_MOC_SOURCES})
 
@@ -31,5 +34,3 @@ set_target_properties(${SCRIBUS_API_LIB}
 	PROPERTIES
 	COMPILE_FLAGS -DCOMPILE_SCRIBUS_MAIN_APP
 )
-
-add_dependencies(${SCRIBUS_API_LIB} ${EXE_NAME})

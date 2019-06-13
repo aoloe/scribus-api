@@ -2,7 +2,10 @@
 #define API_DOCUMENT_LIB
 
 #include <memory>
+#include <vector>
+#include <string>
 #include "third-party/optional/optional.h"
+
 
 #include "scribusapi.h"
 
@@ -26,13 +29,23 @@ class SCRIBUS_API Document
 		}
 
 		// TODO: return an optional shared_ptr
-		static std::shared_ptr<Document> getActive();
+		/* static*/ std::shared_ptr<Document> getActive();
 		bool isOpen() { return scribusDoc != nullptr; }
 
         /**
          * Return the first selected item, if any.
          */
         nonstd::optional<Item> getActiveItem();
+
+        /**
+         * /brief Get the names of all character styles
+         */
+        std::vector<std::string> getCharacterStyleNames();
+
+        /**
+         * /brief Get the names of all paragraph styles
+         */
+        std::vector<std::string> getParagraphStyleNames();
 
 	private:
 
