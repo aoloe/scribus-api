@@ -28,14 +28,12 @@ class SCRIBUS_API Document
 		{
 		}
 
-		// TODO: return an optional shared_ptr
-		/* static*/ std::shared_ptr<Document> getActive();
-		bool isOpen() { return scribusDoc != nullptr; }
+		static std::shared_ptr<Document> getActive();
 
         /**
          * Return the first selected item, if any.
          */
-        nonstd::optional<Item> getActiveItem();
+        std::shared_ptr<Item> getActiveItem();
 
         /**
          * /brief Get the names of all character styles

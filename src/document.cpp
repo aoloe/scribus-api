@@ -20,11 +20,8 @@ std::shared_ptr<Document> Document::getActive()
 	return std::make_shared<Document>(currDoc);
 }
 
-nonstd::optional<Item> Document::getActiveItem()
+std::shared_ptr<Item> Document::getActiveItem()
 {
-	if (!isOpen())
-		return {};
-
     if (scribusDoc->m_Selection->count() != 1)
         return {};
 
@@ -32,7 +29,7 @@ nonstd::optional<Item> Document::getActiveItem()
 
     // item->setPageNumber(pageNumber); TODO: find out the page number
 
-    return {item};
+    return std::make_shared<Item>(item);
 }
 
 std::vector<std::string> Document::getCharacterStyleNames()

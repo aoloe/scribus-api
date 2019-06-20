@@ -1,7 +1,7 @@
 #ifndef API_ITEM_LIB
 #define API_ITEM_LIB
 
-#include "third-party/optional/optional.h"
+#include <memory>
 
 #include "scribusapi.h"
 
@@ -9,16 +9,19 @@
 
 namespace API {
 
+class TextFrame;
+
 class SCRIBUS_API Item
 {
 	public:
 		Item(PageItem* item) :
-			scribusPageItem{item} {}
+			scribusItem{item} {}
 
-		bool isTextFrame() const { return scribusPageItem->asTextFrame(); }
+		bool isTextFrame() const { return scribusItem->asTextFrame(); }
+		PageItem* getScribusItem() const { return scribusItem; }
 
 	private:
-		PageItem* scribusPageItem;
+		PageItem* scribusItem;
 };
 
 } // namespace
