@@ -18,18 +18,15 @@ set(SCRIBUS_API_LIB_SOURCES
   # section.cpp
   # page.cpp
   item.cpp
-  # textFrame.cpp
-  # imageFrame.cpp
+  textframe.cpp
+  # imageframe.cpp
 )
 
 QT5_WRAP_CPP(SCRIBUS_API_LIB_MOC_SOURCES ${SCRIBUS_API_LIB_MOC_CLASSES})
 
 set(SCRIBUS_API_LIB "scribus_api_lib")
-
 add_library(${SCRIBUS_API_LIB} STATIC ${SCRIBUS_API_LIB_SOURCES} ${SCRIBUS_API_LIB_MOC_SOURCES})
 
-# This is a convenience library that for linkage purposes is part of Scribus's
-# main API.
 set_target_properties(${SCRIBUS_API_LIB}
 	PROPERTIES
 	COMPILE_FLAGS -DCOMPILE_SCRIBUS_MAIN_APP

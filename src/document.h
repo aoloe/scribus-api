@@ -4,8 +4,6 @@
 #include <memory>
 #include <vector>
 #include <string>
-#include "third-party/optional/optional.h"
-
 
 #include "scribusapi.h"
 
