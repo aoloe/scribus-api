@@ -21,6 +21,10 @@ class SCRIBUS_API Document
 		 * \brief Initialize an API document with a Scribus "core" document.
 		 * \param doc A pointer to a ScribusDoc structure passed to the plugin as an argument.
 		 */
+		Document() :
+			scribusDoc{nullptr}
+		{
+		}
 		Document(ScribusDoc* scribusDoc) :
 			scribusDoc{scribusDoc}
 		{
@@ -34,14 +38,24 @@ class SCRIBUS_API Document
         std::shared_ptr<Item> getActiveItem();
 
         /**
+         * /brief Get the name of the default character style
+         */
+		const std::string getDefaultCharacterStyleName() const;
+
+        /**
          * /brief Get the names of all character styles
          */
-        std::vector<std::string> getCharacterStyleNames();
+        const std::vector<std::string> getCharacterStyleNames() const;
+
+        /**
+         * /brief Get the name of the default paragraph style
+         */
+		const std::string getDefaultParagraphStyleName() const;
 
         /**
          * /brief Get the names of all paragraph styles
          */
-        std::vector<std::string> getParagraphStyleNames();
+        const std::vector<std::string> getParagraphStyleNames() const;
 
 	private:
 

@@ -32,7 +32,12 @@ std::shared_ptr<Item> Document::getActiveItem()
     return std::make_shared<Item>(item);
 }
 
-std::vector<std::string> Document::getCharacterStyleNames()
+const std::string Document::getDefaultCharacterStyleName() const
+{
+	return scribusDoc->charStyles().getDefault()->name().toStdString();
+}
+
+const std::vector<std::string> Document::getCharacterStyleNames() const
 {
     std::vector<std::string> result{};
 
@@ -47,7 +52,12 @@ std::vector<std::string> Document::getCharacterStyleNames()
     return result;
 }
 
-std::vector<std::string> Document::getParagraphStyleNames()
+const std::string Document::getDefaultParagraphStyleName() const
+{
+	return scribusDoc->paragraphStyles().getDefault()->name().toStdString();
+}
+
+const std::vector<std::string> Document::getParagraphStyleNames() const
 {
     std::vector<std::string> result{};
 
