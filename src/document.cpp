@@ -6,6 +6,8 @@
 #include "selection.h"
 #include "styles/styleset.h"
 #include "styles/charstyle.h"
+#include "styles/paragraphstyle.h"
+// #include "ui/stylemanager.h"
 
 namespace API {
 
@@ -70,6 +72,30 @@ const std::vector<std::string> Document::getParagraphStyleNames() const
     }
 
     return result;
+}
+
+void Document::createCharacterStyle(std::string name)
+{
+	CharStyle characterStyle;
+	characterStyle.setName(QString::fromStdString(name));
+	StyleSet<CharStyle> styleSet;
+	styleSet.create(characterStyle);
+	scribusDoc->redefineCharStyles(styleSet, false);
+	// TODO: find out if it is necessary / makes sense to update the style manager
+	// afaict, the style manager is now updated, but not the text palette
+	// ScCore->primaryMainWindow()->styleMgr()->setDoc(scribusDoc);
+}
+
+void Document::createParagraphStyle(std::string name)
+{
+	ParagraphStyle paragraphStyle;
+	paragraphStyle.setName(QString::fromStdString(name));
+	StyleSet<ParagraphStyle> styleSet;
+	styleSet.create(paragraphStyle);
+	scribusDoc->redefineStyles(styleSet, false);
+	// TODO: find out if it is necessary / makes sense to update the style manager
+	// afaict, the style manager is now updated, but not the text palette
+	// ScCore->primaryMainWindow()->styleMgr()->setDoc(scribusDoc);
 }
 
 } // namespace

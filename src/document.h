@@ -57,6 +57,16 @@ class SCRIBUS_API Document
          */
         const std::vector<std::string> getParagraphStyleNames() const;
 
+        /**
+         * /brief Create a character style with default values
+         */
+		void createCharacterStyle(std::string name);
+
+        /**
+         * /brief Create a paragraph style with default values
+         */
+		void createParagraphStyle(std::string name);
+
 	private:
 
         ScribusDoc* scribusDoc;
