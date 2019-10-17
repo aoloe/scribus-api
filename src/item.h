@@ -3,15 +3,13 @@
 
 #include <memory>
 
-#include "scribusapi.h"
-
 #include "pageitem_textframe.h"
 
 namespace API {
 
 class TextFrame;
 
-class SCRIBUS_API Item
+class Item
 {
 	public:
 		Item(PageItem* item) :
