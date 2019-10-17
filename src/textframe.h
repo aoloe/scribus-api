@@ -5,14 +5,13 @@
 
 #include "item.h"
 
-#include "scribusapi.h"
 #include "pageitem_textframe.h"
 
 namespace API {
 
 class Item;
 
-class SCRIBUS_API TextFrame
+class TextFrame
 {
 	public:
 		TextFrame(std::shared_ptr<Item> item);

@@ -5,15 +5,13 @@
 #include <vector>
 #include <string>
 
-#include "scribusapi.h"
-
 class ScribusDoc;
 
 namespace API {
 
 class Item;
 
-class SCRIBUS_API Document
+class Document
 {
 	public:
 
